@@ -162,29 +162,19 @@ var app = {
       }
 
     },
-  lpCloseConversationScreen: function(eventData) {
-    console.log('@@@ here!'+eventData);
-//
-//    var myRe = /(?:internalErrorCode\\":\\")([0-9]{3,4})(?:\\")/g;
-//    var myArray = myRe.exec(eventData.err);
-//
-//    myArray.forEach((match, groupIndex) => {
-//        console.log('@@@ Found match '+match);
-//
-//    });
-
+  lpCloseConversationScreen: function(error) {
+    console.log('@@@ lpCloseConversationScreen! error => '+error);
     lpMessagingSDK.lp_conversation_api(
         "close_conversation_screen",
         [this.settings.accountId],
         function(data) {
             console.log('@@@ lpCloseConversationScreen -> successCallback');
-            //alert("closed conversation due to error"+match[1])
         },
         function(data) {
             console.log('@@@ lpCloseConversationScreen -> errorCallback');
         }
     )
-    console.log('@@@ here after!')
+    console.log('@@@ lpCloseConversationScreen exit function!')
   },
   globalAsyncEventsErrorCallback: function(data) {
       var eventData = JSON.parse(data);
@@ -193,7 +183,7 @@ var app = {
         );
       if (eventData.eventName == 'LPMessagingSDKError') {
         console.log('@@@ LPMessagingSDKError ...lpCloseConversationScreen ...'+data);
-        app.lpCloseConversationScreen(eventData);
+        app.lpCloseConversationScreen(eventData.error || "LPMessagingSDKError");
       }
     },
   lpGenerateNewAuthenticationToken: function() {
