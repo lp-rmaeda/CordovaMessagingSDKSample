@@ -1,27 +1,38 @@
 package com.liveperson.plugin;
 
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.liveperson.api.LivePersonCallbackImpl;
 import com.liveperson.api.sdk.LPConversationData;
+import com.liveperson.infra.ConversationViewParams;
 import com.liveperson.infra.InitLivePersonProperties;
+import com.liveperson.infra.LPAuthenticationParams;
 import com.liveperson.infra.callbacks.InitLivePersonCallBack;
+import com.liveperson.infra.model.PushMessage;
 import com.liveperson.messaging.TaskType;
 import com.liveperson.messaging.model.AgentData;
 import com.liveperson.messaging.sdk.api.LivePerson;
 import com.liveperson.messaging.sdk.api.callbacks.LogoutLivePersonCallback;
 import com.liveperson.messaging.sdk.api.model.ConsumerProfile;
 
-import org.apache.cordova.*;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
+import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class LPMessagingSDK extends CordovaPlugin {
@@ -31,6 +42,7 @@ public class LPMessagingSDK extends CordovaPlugin {
 
     private static final String INIT = "lp_sdk_init";
     private static final String START_CONVERSATION = "start_lp_conversation";
+    private static final String CLOSE_CONVERSATION_SCREEN = "close_conversation_screen";
     private static final String SET_USER = "set_lp_user_profile";
 
     private static final String CLEAR_HISTORY_AND_LOGOUT = "lp_clear_history_and_logout";
@@ -39,11 +51,18 @@ public class LPMessagingSDK extends CordovaPlugin {
     public static final String LP_ACCOUNT_ID = "lp_account_id";
     public static final String LP_REGISTER_PUSHER = "register_pusher";
 
+    public static final String LP_HANDLE_PUSH_MESSAGE = "handle_push_message";
+    public Boolean LP_DISPLAY_PUSH_MESSAGE = false;
+
     private static final String LP_REGISTER_GLOBAL_ASYNC_EVENT_CALLBACK = "lp_register_event_callback";
 
     CallbackContext mCallbackContext;
     CallbackContext mGlobalCallbackContext;
     CallbackContext mRegisterLpPusherCallbackContext;
+    CallbackContext mHandlePushMessageCallbackContext;
+
+    BroadcastReceiver unreadMessagesBroadcastReceiver;
+    IntentFilter unreadMessagesCounterFilter = new IntentFilter(LivePerson.ACTION_LP_UPDATE_NUM_UNREAD_MESSAGES_ACTION);
 
     private CordovaWebView mainWebView;
 
@@ -72,14 +91,21 @@ public class LPMessagingSDK extends CordovaPlugin {
         Log.v(TAG, "LPMessagingSDK.execute:" + action);
         LP_APP_PACKAGE_NAME = getAppPackageName(cordova.getActivity());
         Log.v(TAG, "LPMessagingSDK.LP_APP_PACKAGE_NAME:" + LP_APP_PACKAGE_NAME);
+        Log.v(TAG, "LPMessagingSDK.VERSION:" + LivePerson.getSDKVersion());
+
+
         boolean success = true;
 
 
-        switch (action){
+        switch (action)
+        {
             case LP_REGISTER_GLOBAL_ASYNC_EVENT_CALLBACK:
                 mGlobalCallbackContext = callbackContext;
                 JSONObject eventJson = new JSONObject();
                 eventJson.put("eventName","lp_register_global_async_event_callback");
+
+                // register broadcast receiver
+                setupUnreadMessagesBroadcastReceiver(mGlobalCallbackContext);
 
                 PluginResult result = new PluginResult(PluginResult.Status.NO_RESULT, "lp_register_global_async_event_callback");
                 result.setKeepCallback(true);
@@ -90,7 +116,20 @@ public class LPMessagingSDK extends CordovaPlugin {
                 // lp_sdk_init - Call this action inorder to do Messaging SDK init
                 final String accountId = args.getString(0);
                 Log.d(TAG, "Messaging SDK: init for account Id: " + accountId);
+                Log.v(TAG, "Messaging SDK VERSION:" + LivePerson.getSDKVersion());
                 initSDK(accountId,callbackContext);
+                break;
+            case CLOSE_CONVERSATION_SCREEN:
+                mCallbackContext = callbackContext;
+                LivePerson.hideConversation(cordova.getActivity());
+                Log.d(TAG, CLOSE_CONVERSATION_SCREEN+ " LPMessagingSDKConversationScreenClosed " + args);
+                JSONObject jsonCloseConversation = new JSONObject();
+                try {
+                    jsonCloseConversation.putOpt("eventName","LPMessagingSDKConversationScreenClosed");
+                    mCallbackContext.success(jsonCloseConversation.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 break;
             case CLEAR_HISTORY_AND_LOGOUT:
                 mCallbackContext = callbackContext;
@@ -145,12 +184,60 @@ public class LPMessagingSDK extends CordovaPlugin {
                 Log.d(TAG, "Messaging SDK: Set User, args:" + args);
                 setProfile(callbackContext, args);
                 break;
+            case LP_HANDLE_PUSH_MESSAGE:
+                mHandlePushMessageCallbackContext = callbackContext;
+
+                String pushMessageContent = args.getString(0);
+
+                JSONObject remoteMessageJson = new JSONObject(args.getString(0));
+                JSONObject remoteMessageAdditionalData = remoteMessageJson.getJSONObject("additionalData");
+                JSONObject remoteMessagePayload = remoteMessageAdditionalData.getJSONObject("payload");
+
+                Log.d(TAG, "LP_HANDLE_PUSH_MESSAGE "+args.getString(0));
+                Log.d(TAG,"LP_HANDLE_PUSH_MESSAGE jsonObject "+remoteMessageJson.get("additionalData"));
+
+                Map<String, String> remoteMessageData = new HashMap<String, String>();
+                remoteMessageData.put("message",remoteMessageJson.getString("message"));
+                Iterator<String> keysItr = remoteMessagePayload.keys();
+                while(keysItr.hasNext()) {
+                    String key = keysItr.next();
+                    String value = remoteMessagePayload.getString(key);
+                    remoteMessageData.put(key, value);
+                }
+
+                PushMessage message = LivePerson.handlePushMessage(cordova.getActivity(), remoteMessageData, remoteMessagePayload.getString("brandId"), LP_DISPLAY_PUSH_MESSAGE);
+                final JSONObject eventJsonHandlePushMessage = new JSONObject();
+                try {
+                    eventJsonHandlePushMessage.put("eventName","LPHandlePushMessage");
+                    eventJsonHandlePushMessage.put("payload",remoteMessagePayload.toString());
+                    eventJsonHandlePushMessage.put("additionalData",remoteMessageAdditionalData.toString());
+                    eventJsonHandlePushMessage.put("message",remoteMessageJson.getString("message"));
+                    eventJsonHandlePushMessage.put("pushMessageObject",message.toString());
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                    eventJsonHandlePushMessage.put("JSONException",e1.toString());
+                    PluginResult resultHandlePushMessage = new PluginResult(PluginResult.Status.ERROR, eventJsonHandlePushMessage.toString());
+                    resultHandlePushMessage.setKeepCallback(true);
+                    mHandlePushMessageCallbackContext.sendPluginResult(resultHandlePushMessage);
+                } catch (NullPointerException e1) {
+                    e1.printStackTrace();
+                    eventJsonHandlePushMessage.put("JSONException",e1.toString());
+                    PluginResult resultHandlePushMessage = new PluginResult(PluginResult.Status.ERROR, eventJsonHandlePushMessage.toString());
+                    resultHandlePushMessage.setKeepCallback(true);
+                    mHandlePushMessageCallbackContext.sendPluginResult(resultHandlePushMessage);
+                }
+
+                PluginResult resultHandlePushMessage = new PluginResult(PluginResult.Status.OK, eventJsonHandlePushMessage.toString());
+                resultHandlePushMessage.setKeepCallback(true);
+                mHandlePushMessageCallbackContext.sendPluginResult(resultHandlePushMessage);
+                break;
             case LP_REGISTER_PUSHER:
 
 
                 mRegisterLpPusherCallbackContext = callbackContext;
                 final String account = args.getString(0);
                 final String token = args.getString(1);
+                LP_DISPLAY_PUSH_MESSAGE = args.getBoolean(2);
                 Log.d(TAG, "@@@ Android ...LPMessaging SDK: register_pusher for  account: " + account +", token: " + token + " LP_APP_PACKAGE_NAME : "+LP_APP_PACKAGE_NAME);
                 LivePerson.registerLPPusher(account, LP_APP_PACKAGE_NAME, token);
                 JSONObject json = new JSONObject();
@@ -175,6 +262,35 @@ public class LPMessagingSDK extends CordovaPlugin {
         }
 
         return success;
+    }
+
+    private void setupUnreadMessagesBroadcastReceiver(CallbackContext cb) {
+        unreadMessagesBroadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                int newValue = intent.getIntExtra(LivePerson.ACTION_LP_UPDATE_NUM_UNREAD_MESSAGES_EXTRA, 0);
+                Log.i(TAG,"unreadMessagesBroadcastReceiver newValue ==> "+newValue);
+                if (newValue > 0) {
+                    // call our callback context here!
+                    final JSONObject eventJson = new JSONObject();
+                    try {
+                        eventJson.put("eventName","LPNumberOfUnreadMessagesUpdated");
+                        eventJson.put("numberOfUnreadMessages", newValue);
+                    } catch (JSONException e1) {
+                        e1.printStackTrace();
+                    }
+
+                    PluginResult result = new PluginResult(PluginResult.Status.OK, eventJson.toString());
+                    result.setKeepCallback(true);
+                    mGlobalCallbackContext.sendPluginResult(result);
+                }
+            }
+        };
+
+        // ^ create receiver object
+
+        cordova.getActivity().registerReceiver(unreadMessagesBroadcastReceiver,unreadMessagesCounterFilter );
+        // ^ register receiver!
     }
 
     /**
@@ -296,7 +412,8 @@ public class LPMessagingSDK extends CordovaPlugin {
                 }
 
                 try {
-                    LivePerson.showConversation(cordova.getActivity(),token);
+//                    LivePerson.showConversation(cordova.getActivity(),token);
+                    LivePerson.showConversation(cordova.getActivity(),new LPAuthenticationParams().setHostAppJWT(token),new ConversationViewParams(false));
                     PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
                     result.setKeepCallback(true);
                     mCallbackContext.sendPluginResult(result);
@@ -331,7 +448,6 @@ public class LPMessagingSDK extends CordovaPlugin {
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setPhoneNumber(phone)
-                .setAvatartUrl(profileImageUrl)
                 .setNickname(nickname)
                 .build();
 

@@ -8,27 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
-		0BF2BC1908AB4C458B09FEA4 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A337FAF20DE146978FB7E0F9 /* CDVLogger.m */; };
+		12DB9DDD89354142A003E731 /* LPInfra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 795A78836C2748BFAD57ED12 /* LPInfra.framework */; };
+		1861C396C2FE4B36B29EDEF7 /* LPMessagingSDKPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451F6E5A9DEB45DBB002E0A8 /* LPMessagingSDKPlugin.swift */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		1E8C8C6B1E83D553006FEFE6 /* LPAMS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8C8C681E83D553006FEFE6 /* LPAMS.framework */; };
-		1E8C8C6C1E83D553006FEFE6 /* LPAMS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8C8C681E83D553006FEFE6 /* LPAMS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1E8C8C6D1E83D553006FEFE6 /* LPInfra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8C8C691E83D553006FEFE6 /* LPInfra.framework */; };
-		1E8C8C6E1E83D553006FEFE6 /* LPInfra.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8C8C691E83D553006FEFE6 /* LPInfra.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1E8C8C6F1E83D553006FEFE6 /* LPMessagingSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8C8C6A1E83D553006FEFE6 /* LPMessagingSDK.framework */; };
-		1E8C8C701E83D553006FEFE6 /* LPMessagingSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8C8C6A1E83D553006FEFE6 /* LPMessagingSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1E8C8C731E83D582006FEFE6 /* LPMessagingSDKModels.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1E8C8C721E83D582006FEFE6 /* LPMessagingSDKModels.bundle */; };
-		1EC10C9E1E7C4A15001F0534 /* LPMessagingSDKCallBackWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC10C9D1E7C4A15001F0534 /* LPMessagingSDKCallBackWrapper.swift */; };
+		1EBEF0BF1FC464A100578796 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EBEF0BD1FC464A100578796 /* PushPlugin.m */; };
+		1EBEF0C01FC464A100578796 /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EBEF0BE1FC464A100578796 /* AppDelegate+notification.m */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
-		303E96D63BED49C5BC79E160 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EEFB9E06B0477E83721A80 /* ContainerViewController.swift */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
-		B33D4DE7302C43CD880A752D /* LPMessagingSDKPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16CDAF3E3834450B5DD9343 /* LPMessagingSDKPlugin.swift */; };
-		B9DE122661C142C5868101C8 /* LPSDKCordovaSample-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 450136972C3C46E0B1DC20C6 /* LPSDKCordovaSample-Bridging-Header.h */; };
+		72A4BD80327148DA8D0C015C /* LPMessagingSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1357B9427D064D018941004C /* LPMessagingSDK.framework */; };
+		8116AD3B856B4775B2A83BF3 /* LPAMS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A048D1CDD9C340CE99B16199 /* LPAMS.framework */; };
+		93BA516D860462E0BF666405 /* Pods_SampleApp01.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C8799FDF8019CF24E021DC6 /* Pods_SampleApp01.framework */; };
+		C53FFBAE2A32404F99FBDF68 /* LPMessagingSDKModels.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 597E8AAD589F4A4980C5CA17 /* LPMessagingSDKModels.bundle */; };
+		EFD0701551F74F46919161CA /* LPSDKCordovaSample-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = E1A73055E2964DD497B99EF4 /* LPSDKCordovaSample-Bridging-Header.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1EBEF09A1FC3A0CB00578796 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C0C01EB21E3911D50056E6CB;
+			remoteInfo = Cordova;
+		};
 		301BF534109A57CC0062928A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
@@ -45,33 +49,16 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		1E8C8C711E83D553006FEFE6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				1E8C8C701E83D553006FEFE6 /* LPMessagingSDK.framework in Embed Frameworks */,
-				1E8C8C6C1E83D553006FEFE6 /* LPAMS.framework in Embed Frameworks */,
-				1E8C8C6E1E83D553006FEFE6 /* LPInfra.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		0207DA571B56EA530066E2B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SampleApp01/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		07EEFB9E06B0477E83721A80 /* ContainerViewController.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = ContainerViewController.swift; path = com.liveperson.messagingSDK/ContainerViewController.swift; sourceTree = "<group>"; };
+		1357B9427D064D018941004C /* LPMessagingSDK.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = LPMessagingSDK.framework; path = SampleApp01/Plugins/com.liveperson.messagingSDK/LPMessagingSDK.framework; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* SampleApp01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp01.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E8C8C681E83D553006FEFE6 /* LPAMS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LPAMS.framework; sourceTree = "<group>"; };
-		1E8C8C691E83D553006FEFE6 /* LPInfra.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LPInfra.framework; sourceTree = "<group>"; };
-		1E8C8C6A1E83D553006FEFE6 /* LPMessagingSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LPMessagingSDK.framework; sourceTree = "<group>"; };
-		1E8C8C721E83D582006FEFE6 /* LPMessagingSDKModels.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = LPMessagingSDKModels.bundle; path = ../../LPMessagingSDKModels.bundle; sourceTree = "<group>"; };
-		1EC10C9D1E7C4A15001F0534 /* LPMessagingSDKCallBackWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPMessagingSDKCallBackWrapper.swift; sourceTree = "<group>"; };
+		1EBEF0BB1FC464A100578796 /* PushPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushPlugin.h; path = "phonegap-plugin-push/PushPlugin.h"; sourceTree = "<group>"; };
+		1EBEF0BC1FC464A100578796 /* AppDelegate+notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+notification.h"; path = "phonegap-plugin-push/AppDelegate+notification.h"; sourceTree = "<group>"; };
+		1EBEF0BD1FC464A100578796 /* PushPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushPlugin.m; path = "phonegap-plugin-push/PushPlugin.m"; sourceTree = "<group>"; };
+		1EBEF0BE1FC464A100578796 /* AppDelegate+notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+notification.m"; path = "phonegap-plugin-push/AppDelegate+notification.m"; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
@@ -82,12 +69,14 @@
 		3047A5101AB8059700498E2A /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-release.xcconfig"; path = "cordova/build-release.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5111AB8059700498E2A /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = build.xcconfig; path = cordova/build.xcconfig; sourceTree = SOURCE_ROOT; };
 		32CA4F630368D1EE00C91783 /* SampleApp01-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SampleApp01-Prefix.pch"; sourceTree = "<group>"; };
-		450136972C3C46E0B1DC20C6 /* LPSDKCordovaSample-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "LPSDKCordovaSample-Bridging-Header.h"; path = "com.liveperson.messagingSDK/LPSDKCordovaSample-Bridging-Header.h"; sourceTree = "<group>"; };
+		3C8799FDF8019CF24E021DC6 /* Pods_SampleApp01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp01.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		451F6E5A9DEB45DBB002E0A8 /* LPMessagingSDKPlugin.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = LPMessagingSDKPlugin.swift; path = com.liveperson.messagingSDK/LPMessagingSDKPlugin.swift; sourceTree = "<group>"; };
+		597E8AAD589F4A4980C5CA17 /* LPMessagingSDKModels.bundle */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.plug-in"; path = LPMessagingSDKModels.bundle; sourceTree = "<group>"; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = SampleApp01/CDVLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		795A78836C2748BFAD57ED12 /* LPInfra.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = LPInfra.framework; path = SampleApp01/Plugins/com.liveperson.messagingSDK/LPInfra.framework; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SampleApp01-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SampleApp01-Info.plist"; path = "SampleApp01/SampleApp01-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
-		A337FAF20DE146978FB7E0F9 /* CDVLogger.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVLogger.m; path = "cordova-plugin-console/CDVLogger.m"; sourceTree = "<group>"; };
-		B16CDAF3E3834450B5DD9343 /* LPMessagingSDKPlugin.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = LPMessagingSDKPlugin.swift; path = com.liveperson.messagingSDK/LPMessagingSDKPlugin.swift; sourceTree = "<group>"; };
-		C8621CB51B6749C5B11FCAE3 /* CDVLogger.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVLogger.h; path = "cordova-plugin-console/CDVLogger.h"; sourceTree = "<group>"; };
+		A048D1CDD9C340CE99B16199 /* LPAMS.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = LPAMS.framework; path = SampleApp01/Plugins/com.liveperson.messagingSDK/LPAMS.framework; sourceTree = "<group>"; };
+		E1A73055E2964DD497B99EF4 /* LPSDKCordovaSample-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "LPSDKCordovaSample-Bridging-Header.h"; path = "com.liveperson.messagingSDK/LPSDKCordovaSample-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -99,10 +88,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E8C8C6F1E83D553006FEFE6 /* LPMessagingSDK.framework in Frameworks */,
-				1E8C8C6B1E83D553006FEFE6 /* LPAMS.framework in Frameworks */,
-				1E8C8C6D1E83D553006FEFE6 /* LPInfra.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
+				93BA516D860462E0BF666405 /* Pods_SampleApp01.framework in Frameworks */,
+				8116AD3B856B4775B2A83BF3 /* LPAMS.framework in Frameworks */,
+				12DB9DDD89354142A003E731 /* LPInfra.framework in Frameworks */,
+				72A4BD80327148DA8D0C015C /* LPMessagingSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +133,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				D4369620BB2C70E344FBE17E /* Pods */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -161,11 +152,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1E8C8C721E83D582006FEFE6 /* LPMessagingSDKModels.bundle */,
 				0207DA571B56EA530066E2B4 /* Images.xcassets */,
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* SampleApp01-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
+				597E8AAD589F4A4980C5CA17 /* LPMessagingSDKModels.bundle */,
 			);
 			name = Resources;
 			path = SampleApp01/Resources;
@@ -174,9 +165,10 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1E8C8C681E83D553006FEFE6 /* LPAMS.framework */,
-				1E8C8C691E83D553006FEFE6 /* LPInfra.framework */,
-				1E8C8C6A1E83D553006FEFE6 /* LPMessagingSDK.framework */,
+				3C8799FDF8019CF24E021DC6 /* Pods_SampleApp01.framework */,
+				A048D1CDD9C340CE99B16199 /* LPAMS.framework */,
+				795A78836C2748BFAD57ED12 /* LPInfra.framework */,
+				1357B9427D064D018941004C /* LPMessagingSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -185,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				301BF535109A57CC0062928A /* libCordova.a */,
+				1EBEF09B1FC3A0CB00578796 /* Cordova.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,16 +195,23 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				A337FAF20DE146978FB7E0F9 /* CDVLogger.m */,
-				C8621CB51B6749C5B11FCAE3 /* CDVLogger.h */,
-				B16CDAF3E3834450B5DD9343 /* LPMessagingSDKPlugin.swift */,
-				07EEFB9E06B0477E83721A80 /* ContainerViewController.swift */,
-				1EC10C9D1E7C4A15001F0534 /* LPMessagingSDKCallBackWrapper.swift */,
-				450136972C3C46E0B1DC20C6 /* LPSDKCordovaSample-Bridging-Header.h */,
+				1EBEF0BC1FC464A100578796 /* AppDelegate+notification.h */,
+				1EBEF0BE1FC464A100578796 /* AppDelegate+notification.m */,
+				1EBEF0BB1FC464A100578796 /* PushPlugin.h */,
+				1EBEF0BD1FC464A100578796 /* PushPlugin.m */,
+				451F6E5A9DEB45DBB002E0A8 /* LPMessagingSDKPlugin.swift */,
+				E1A73055E2964DD497B99EF4 /* LPSDKCordovaSample-Bridging-Header.h */,
 			);
 			name = Plugins;
 			path = SampleApp01/Plugins;
 			sourceTree = SOURCE_ROOT;
+		};
+		D4369620BB2C70E344FBE17E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Pods;
+			sourceTree = "<group>";
 		};
 		EB87FDF11871DA420020F90C /* Staging */ = {
 			isa = PBXGroup;
@@ -229,11 +229,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SampleApp01" */;
 			buildPhases = (
+				C74AAC38D4203A43FBA6398C /* [CP] Check Pods Manifest.lock */,
 				304B58A110DAC018002A0835 /* Copy www directory */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
-				1E8C8C711E83D553006FEFE6 /* Embed Frameworks */,
+				03D12341D56169D34D54949A /* [CP] Embed Pods Frameworks */,
+				922ADA5795C4C3719F1FD36E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,11 +253,10 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 820;
+				LastUpgradeCheck = 0910;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = GJFY6G9LKD;
-						LastSwiftMigration = 820;
+						DevelopmentTeam = YD9E38LGAJ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -268,6 +269,7 @@
 				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
@@ -283,6 +285,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		1EBEF09B1FC3A0CB00578796 /* Cordova.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cordova.framework;
+			remoteRef = 1EBEF09A1FC3A0CB00578796 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		301BF535109A57CC0062928A /* libCordova.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -297,16 +306,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E8C8C731E83D582006FEFE6 /* LPMessagingSDKModels.bundle in Resources */,
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
+				C53FFBAE2A32404F99FBDF68 /* LPMessagingSDKModels.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		03D12341D56169D34D54949A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SampleApp01/Pods-SampleApp01-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		304B58A110DAC018002A0835 /* Copy www directory */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,6 +346,36 @@
 			shellScript = "NODEJS_PATH=/usr/local/bin; NVM_NODE_PATH=~/.nvm/versions/node/`nvm version 2>/dev/null`/bin; N_NODE_PATH=`find /usr/local/n/versions/node/* -maxdepth 0 -type d 2>/dev/null | tail -1`/bin; XCODE_NODE_PATH=`xcode-select --print-path`/usr/share/xcs/Node/bin; PATH=$NODEJS_PATH:$NVM_NODE_PATH:$N_NODE_PATH:$XCODE_NODE_PATH:$PATH && node cordova/lib/copy-www-build-step.js";
 			showEnvVarsInLog = 0;
 		};
+		922ADA5795C4C3719F1FD36E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SampleApp01/Pods-SampleApp01-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C74AAC38D4203A43FBA6398C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -329,14 +383,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EC10C9E1E7C4A15001F0534 /* LPMessagingSDKCallBackWrapper.swift in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
+				1EBEF0BF1FC464A100578796 /* PushPlugin.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				0BF2BC1908AB4C458B09FEA4 /* CDVLogger.m in Sources */,
-				B33D4DE7302C43CD880A752D /* LPMessagingSDKPlugin.swift in Sources */,
-				303E96D63BED49C5BC79E160 /* ContainerViewController.swift in Sources */,
-				B9DE122661C142C5868101C8 /* LPSDKCordovaSample-Bridging-Header.h in Sources */,
+				1861C396C2FE4B36B29EDEF7 /* LPMessagingSDKPlugin.swift in Sources */,
+				EFD0701551F74F46919161CA /* LPSDKCordovaSample-Bridging-Header.h in Sources */,
+				1EBEF0C01FC464A100578796 /* AppDelegate+notification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,36 +414,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = GJFY6G9LKD;
+				DEVELOPMENT_TEAM = YD9E38LGAJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					"$(PROJECT_DIR)/SampleApp01/Plugins/com.liveperson.messagingSDK",
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					"$(PROJECT_DIR)",
+					"\"SampleApp01/Plugins/com.liveperson.messagingSDK\"",
+					"\"SampleApp01/Plugins/com.liveperson.messagingSDK\"",
+					"\"SampleApp01/Plugins/com.liveperson.messagingSDK\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -399,13 +430,11 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "SampleApp01/SampleApp01-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liveperson.sampleapp01;
 				PRODUCT_NAME = SampleApp01;
-				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -420,47 +449,25 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = GJFY6G9LKD;
+				DEVELOPMENT_TEAM = YD9E38LGAJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					"$(PROJECT_DIR)/SampleApp01/Plugins/com.liveperson.messagingSDK",
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					SampleApp01/Plugins/com.liveperson.messagingSDK,
-					"$(PROJECT_DIR)",
+					"\"SampleApp01/Plugins/com.liveperson.messagingSDK\"",
+					"\"SampleApp01/Plugins/com.liveperson.messagingSDK\"",
+					"\"SampleApp01/Plugins/com.liveperson.messagingSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleApp01/SampleApp01-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "SampleApp01/SampleApp01-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liveperson.sampleapp01;
 				PRODUCT_NAME = SampleApp01;
-				SWIFT_VERSION = 3.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -469,14 +476,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3047A5111AB8059700498E2A /* build.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -495,6 +509,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -502,14 +517,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3047A5111AB8059700498E2A /* build.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -527,6 +549,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

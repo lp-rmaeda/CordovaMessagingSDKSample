@@ -24,3 +24,33 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#Cordova build
+apps/sampleapp03/platforms/android/CordovaLib/build
+apps/sampleapp03/platforms/android/lp_messaging_sdk/build
+apps/**/.idea/
+apps/**/.gradle/
+apps/**/android.iml
+apps/**/CordovaLib.iml
+apps/**/lp_messaging_sdk.iml
+apps/*.iml
+apps/*.ipr
+apps/*.iws
+apps/**/build/
+apps/**/lp_messaging_sdk/.settings
+
+
+#old apps
+apps/AndroidBrandingSampleApp
+UserInterfaceState.xcuserstate
+
+docs/
+.idea
+.shelf
+apps/sampleapp03/platforms/android/lp_messaging_sdk/build/outputs/aar/lp_messaging_sdk-release.aar
+apps/sampleapp04/platforms/ios/SampleApp04.xcworkspace/xcuserdata/jbeadle.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+apps/sampleapp04/platforms/ios/SampleApp04.xcodeproj/project.pbxproj
+apps/sampleapp03/platforms/android/lp_messaging_sdk/build/intermediates/incremental/packageReleaseResources/compile-file-map.properties
+apps/sampleapp03/platforms/android/lp_messaging_sdk/build/intermediates/incremental/packageReleaseResources/compile-file-map.properties
+apps/sampleapp04/platforms/ios/SampleApp04.xcodeproj/project.pbxproj
+apps/sampleapp04/platforms/ios/SampleApp04.xcworkspace/xcuserdata/jbeadle.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist

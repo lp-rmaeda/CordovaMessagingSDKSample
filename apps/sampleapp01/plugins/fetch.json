@@ -7,10 +7,10 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-console": {
+    "phonegap-plugin-push": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-console"
+            "id": "phonegap-plugin-push@^2.0.0"
         },
         "is_top_level": true,
         "variables": {}
@@ -18,7 +18,7 @@
     "com.liveperson.messagingSDK": {
         "source": {
             "type": "local",
-            "path": "../../plugins/MessagingSDKPlugin"
+            "path": "/Users/jbeadle/www/talktalk/cordova/repos/github/CordovaMessagingSDKSample/apps/sampleapp01/node_modules/MessagingSDKPlugin"
         },
         "is_top_level": true,
         "variables": {}
