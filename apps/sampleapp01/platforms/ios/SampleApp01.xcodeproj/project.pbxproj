@@ -254,6 +254,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0910;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = YD9E38LGAJ;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SampleApp01" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -407,7 +413,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = YD9E38LGAJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"SampleApp01/Plugins/com.liveperson.messagingSDK\"",
@@ -425,6 +434,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liveperson.sampleapp01;
 				PRODUCT_NAME = SampleApp01;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -438,7 +448,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = YD9E38LGAJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"SampleApp01/Plugins/com.liveperson.messagingSDK\"",
@@ -454,6 +467,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liveperson.sampleapp01;
 				PRODUCT_NAME = SampleApp01;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

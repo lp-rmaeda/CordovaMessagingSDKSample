@@ -3,22 +3,18 @@
 
 # Versioning
 
-Current Version: v2.5.0
+Current Version: v2.9
 
 Running with the following versions of the LivePerson Messaging SDK
 
-+ [iOS SDK v2.5.x](https://github.com/LP-Messaging/iOS-Messaging-SDK/releases/tag/2.5.0)
-+ [Android SDK v2.5.x](https://github.com/LP-Messaging/Android-Messaging-SDK/releases/tag/v2.5.0)
++ [iOS SDK v2.9.3](https://github.com/LP-Messaging/iOS-Messaging-SDK/releases/tag/2.9.3)
++ [Android SDK v2.9.2](https://github.com/LP-Messaging/Android-Messaging-SDK/releases/tag/v2.9.2)
 
 
 ## Untested Features
 
-Due to SDK 2.5 only just being released this current plugin version is a port of v2.1.5 in terms of supported features.
+The following new SDK features have not been tested for Cordova plugin compatibility.
 
-Therefore (currently) the following new SDK 2.5 features have not been tested for Cordova plugin compatibility.
-
-* [Android] - number of unread messages counter in-app 
-* Photo Sharing
 * Secure Form
 
 ## General Limitations / Unsupported Features
@@ -42,22 +38,18 @@ Requiring additional brand specific events will require you to modify the code a
 
 ### PLEASE NOTE -- XCODE UPGRADE REQUIRED!!
 
-+ Any version of the Cordova plugin v2.1.x and above has been compiled with the xcode version 8.3.1
-+ Any apps you build with these versions of the iOS SDK (v2.1.5 and above) will require the above xcode version to build and run - due to the change in Swift version numbers.
-+ Xcode v8.3.1 also requires macOS Sierra in order to install!
++ iOS SDK v2.9.x requires XCODE v9.1 and above to use Swift 4.0
+  + You will need macOS Sierra in order to install this.
+
 
 # Installing / Getting started
 
 ### _"Where do I find the latest version of the plugin?"_
 
 Repo has been restructured.
-The various versions of the plugin live here:
+The plugin is now here:
 
-`/plugins/`
-
-The latest release v2.5.x is here
-
-`/plugins/v2.5.x/MessagingSDKPlugin`
+`/plugins/MessagingSDKPlugin`
 
 If you need to reinstall the plugin to your app, make sure you pull it from this folder.
 
@@ -66,7 +58,7 @@ e.g if you were working in the sampleapp01 example folder
 ```
 cd apps/sampleapp01
 cordova plugin remove com.liveperson.messagingSDK
-cordova plugin add ../../plugins/v2.5.x/MessagingSDKPlugin
+cordova plugin add ../../plugins/MessagingSDKPlugin
 ```
 
 ## iOS 
@@ -75,11 +67,10 @@ cordova plugin add ../../plugins/v2.5.x/MessagingSDKPlugin
 
 To use the LivePerson In-App Messaging SDK, the following are required:
 
-+ XCode 8.3 or later
-+ Swift 3.1 or later, or Objective-C
++ XCode 9.1 or later
++ Swift 4.0 or later, or Objective-C
 
-Note: For information on supported operating systems and devices, refer to [System Requirements](https://s3-eu-west-1.amazonaws.com/ce-sr/CA/Admin/Sys+req/System+requirements.pdf).
-
+For latest information please refer to [LivePerson Developers Site](https://developers.liveperson.com/index.html)
 
 ### Add iOS SDK Frameworks - Recommended via CocoaPods
 
@@ -101,13 +92,31 @@ $ pod init
 
   > To integrate Liveperson Messaging SDK into your Xcode project using CocoaPods, specify it in your Podfile:
 
-```
-source 'https://github.com/LivePersonInc/iOSPodSpecs.git'
-platform :ios, '8.0'
-use_frameworks!
+[https://developers.liveperson.com/consumer-experience-ios-sdk-sampleapp.html#add-lpmessagingsdk-to-your-podfile](https://developers.liveperson.com/consumer-experience-ios-sdk-sampleapp.html#add-lpmessagingsdk-to-your-podfile)
 
-target '<Your Target Name>' do
-    pod 'LPMessagingSDK'
+```
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/LivePersonInc/iOSPodSpecs.git'
+
+target '<YourApplicatioName>' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for <YourApplicatioName>
+  pod 'LPMessagingSDK','~>2.8.0.9'
+
+  target '<YourApplicatioName>Tests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target '<YourApplicatioName>UITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 end
 ```
 
@@ -122,6 +131,30 @@ $ pod install
 ```
 $ pod update
 ```
+
+#### Podfile SDK Links for various versions FYI
+
+**SDK 2.5**
+
+Xcode 8:
+* Cocoapods version: 2.5.4.0.1212 
+* Libraries version 2.5.4:  https://github.com/LP-Messaging/iOS-Messaging-SDK/releases/tag/2.5.4
+
+**SDK 2.7**
+
+Xcode 8:
+* Cocoapods version: 2.7.1.0.1213
+* Libraries version 2.7.1: https://github.com/LP-Messaging/iOS-Messaging-SDK/releases/tag/2.7.1
+
+Xcode 9:
+* Cocoapods version: 2.7.1.1.1215
+* Libraries version 2.7.1 (using side branch): https://github.com/LP-Messaging/iOS-Messaging-SDK/tree/SDK_2.7_Swift_4.0
+
+**SDK 2.8**
+
+Xcode 9 only:
+* Cocoapods version (only): 2.8.3.0.1224
+* Libraries version 2.8.3: https://github.com/LP-Messaging/iOS-Messaging-SDK/releases/tag/2.8.3
 
 ### Installation of iOS Libraries by Copying to Xcode Project
 Copy all framework and bundle files into the project, including the bundle file In project settings, navigate to the General tab, and add all Framework files to the Embedded Binaries section.
@@ -139,7 +172,6 @@ If frameworks installed using copy to Xcode project, use the following script:
 ```
 bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/LPInfra.framework/frameworks-strip.sh"
 ```
-
 
 ### Manual Framework installation Notes
 
@@ -179,13 +211,13 @@ The plugin itself does NOT include any copies of the Android SDK `aars` librarie
 
 Within the `apps/` folder at the root of this repo you will find some sample apps demoing the plugin. Here is a breakdown.
 
-### `apps/sampleapp04` -- iOS Only SDK v2.1.5
+### `apps/sampleapp01` -- iOS Only
 
 Has been created as  reference app using iOS frameworks.
 
 This app does NOT include an Android application - refer to SampleApp03 for the latest Android example app.
 
-Includes a basic iOS Cordova App with Messaging integration and the PhoneGap Push plugin installed - but not yet tested as Simulator restrictions prevent this...
+Includes a basic iOS Cordova App with Messaging integration and the PhoneGap Push plugin installed - but not with Simulator as restrictions prevent this...you will need to run on physical device.
 
 ![screen shot 2017-04-20 at 22 50 14](https://cloud.githubusercontent.com/assets/10999907/25254104/c19f863e-261b-11e7-95ac-1affddb98db0.png)
 
@@ -194,10 +226,7 @@ Includes a basic iOS Cordova App with Messaging integration and the PhoneGap Pus
 + includes authentication for both platforms
 + phone gap push plugin RC 2.0 for Android and iOS
   + working on Android
-  + not yet tested on iOS due to account limitations TBC.
-+ Android SDK v2.1.3
-+ iOS SDK v2.1.2
-  + runs on xcode 8.2.1
+
 
 ------
 
@@ -218,7 +247,7 @@ lp_conversation_api: function(action, args, successCallback, errorCallback)
 Supported values for `action` :
 
 ---- 
-#### *************************** NEW IN v2.5.x *************************************
+#### *************************** NEW IN v2.9.x *************************************
 
 ### `"close_conversation_screen"`
 
