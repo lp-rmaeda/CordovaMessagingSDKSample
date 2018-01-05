@@ -9,6 +9,7 @@ def doExtractStringFromManifest(name) {
 }
 
 cdvPluginPostBuildExtras << {
+
     apply plugin: 'com.google.gms.google-services'
 }
 
