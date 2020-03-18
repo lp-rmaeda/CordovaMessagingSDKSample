@@ -1,13 +1,6 @@
 apply plugin: 'com.android.application'
 
-android {
-    repositories {
-        flatDir {
-            dirs project(':lp_messaging_sdk').file('aars')
-        }
-    }
+dependencies {
+    implementation ("com.liveperson.android:lp_messaging_sdk:5.1.1")
 }
 
-dependencies {
-    compile project(':lp_messaging_sdk')
-}

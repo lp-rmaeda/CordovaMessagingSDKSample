@@ -8,7 +8,11 @@ import android.util.Log;
 
 import com.liveperson.api.LivePersonCallbackImpl;
 import com.liveperson.api.sdk.LPConversationData;
+import com.liveperson.infra.ConversationViewParams;
 import com.liveperson.infra.InitLivePersonProperties;
+import com.liveperson.infra.LPConversationsHistoryStateToDisplay;
+import com.liveperson.infra.auth.LPAuthenticationParams;
+import com.liveperson.infra.auth.LPAuthenticationType;
 import com.liveperson.infra.callbacks.InitLivePersonCallBack;
 import com.liveperson.messaging.TaskType;
 import com.liveperson.messaging.model.AgentData;
@@ -262,7 +266,7 @@ public class LPMessagingSDK extends CordovaPlugin {
         } catch (JSONException e1) {
             e1.printStackTrace();
         }
-        LivePerson.reconnect(jwt);
+        LivePerson.reconnect(new LPAuthenticationParams().setHostAppJWT(jwt));
         PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
         result.setKeepCallback(true);
         mCallbackContext.sendPluginResult(result);
@@ -283,7 +287,8 @@ public class LPMessagingSDK extends CordovaPlugin {
                         e1.printStackTrace();
                     }
                     try {
-                        LivePerson.showConversation(cordova.getActivity());
+                        LivePerson.showConversation(cordova.getActivity(), new LPAuthenticationParams(LPAuthenticationType.UN_AUTH),
+                                new ConversationViewParams().setHistoryConversationsStateToDisplay((LPConversationsHistoryStateToDisplay.ALL)));
                         PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
                         result.setKeepCallback(true);
                         mCallbackContext.sendPluginResult(result);
@@ -313,7 +318,8 @@ public class LPMessagingSDK extends CordovaPlugin {
                 }
 
                 try {
-                    LivePerson.showConversation(cordova.getActivity(),token);
+                    LivePerson.showConversation(cordova.getActivity(), new LPAuthenticationParams().setAuthKey(token),
+                            new ConversationViewParams().setHistoryConversationsStateToDisplay((LPConversationsHistoryStateToDisplay.ALL)));
                     PluginResult result = new PluginResult(PluginResult.Status.OK, json.toString());
                     result.setKeepCallback(true);
                     mCallbackContext.sendPluginResult(result);
@@ -593,3 +599,4 @@ public class LPMessagingSDK extends CordovaPlugin {
     }
 
 }
+

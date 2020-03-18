@@ -5,7 +5,6 @@
 # Icon must end with two \r
 Icon
 
-
 # Thumbnails
 ._*
 
@@ -24,10 +23,11 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+.*.swp
 
 #Cordova build
-apps/sampleapp03/platforms/android/CordovaLib/build
-apps/sampleapp03/platforms/android/lp_messaging_sdk/build
+apps/**/plugins/
+apps/**/platforms/
 apps/**/.idea/
 apps/**/.gradle/
 apps/**/android.iml
@@ -39,18 +39,11 @@ apps/*.iws
 apps/**/build/
 apps/**/lp_messaging_sdk/.settings
 
+plugins/**/out/
+plugins/**/android.iml
 
-#old apps
-apps/AndroidBrandingSampleApp
 UserInterfaceState.xcuserstate
 
 docs/
 .idea
 .shelf
-apps/sampleapp03/platforms/android/lp_messaging_sdk/build/outputs/aar/lp_messaging_sdk-release.aar
-apps/sampleapp04/platforms/ios/SampleApp04.xcworkspace/xcuserdata/jbeadle.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
-apps/sampleapp04/platforms/ios/SampleApp04.xcodeproj/project.pbxproj
-apps/sampleapp03/platforms/android/lp_messaging_sdk/build/intermediates/incremental/packageReleaseResources/compile-file-map.properties
-apps/sampleapp03/platforms/android/lp_messaging_sdk/build/intermediates/incremental/packageReleaseResources/compile-file-map.properties
-apps/sampleapp04/platforms/ios/SampleApp04.xcodeproj/project.pbxproj
-apps/sampleapp04/platforms/ios/SampleApp04.xcworkspace/xcuserdata/jbeadle.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
