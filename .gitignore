@@ -28,7 +28,7 @@ Temporary Items
 #Cordova build
 apps/**/plugins/
 apps/**/platforms/
-apps/**/node_modules//
+apps/**/node_modules/
 apps/**/.idea/
 apps/**/.gradle/
 apps/**/android.iml
