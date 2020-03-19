@@ -19,7 +19,8 @@
 var app = {
 
     settings: {
-        accountId: "90233546", // replace with your account id
+        accountId: "36547464", // replace with your account id
+        appInstallationId : "6751f6e9-189c-4f7f-b22a-bb850b65aab3", // replace with your App Key
         startMessagingConversationButtonId: "start_lp_conversation",
         logoutButtonId: "logout_and_clear_history"
     },
@@ -67,15 +68,12 @@ var app = {
                     console.log("@@@ js ... unique register_pusher SDK error callback ..." + data);
                 }
             );
-
-
         });
 
         push.on('error', function (e) {
             // e.message
             console.log('@@@ pushNotification plugin error ...' + e.message);
         });
-
 
         push.on('notification', function (data) {
             console.log('@@@ pushNotification on.notification ...' + data.message);
@@ -102,18 +100,16 @@ var app = {
         var buttonElement = document.getElementById(this.settings.startMessagingConversationButtonId);
         buttonElement.addEventListener("click", this.lpStartMessagingConversation.bind(this, 'jwt1'), false);
 
-
-        var buttonElement2 = document.getElementById("start_lp_conversation_2nd_user");
-        buttonElement2.addEventListener("click", this.lpStartMessagingConversation.bind(this, 'jwt2'), false);
+        // var buttonElement2 = document.getElementById("start_lp_conversation_2nd_user");
+        // buttonElement2.addEventListener("click", this.lpStartMessagingConversation.bind(this, 'jwt2'), false);
 
         //        var buttonElement3 = document.getElementById("init_lp_sdk");
         //        buttonElement3.addEventListener("click",this.lpMessagingSdkInit.bind(this),false);
 
-
         var logoutElement = document.getElementById(this.settings.logoutButtonId);
         logoutElement.addEventListener("click", this.clearDeviceHistoryAndLogout.bind(this), false);
-
     },
+
     clearDeviceHistoryAndLogout: function () {
         console.log("@@@ clearDeviceHistoryAndLogout ***");
         lpMessagingSDK.lp_conversation_api(
@@ -150,6 +146,7 @@ var app = {
         console.log('@@@ successCallback fired ' + eventData.eventName);
 
     },
+
     globalAsyncEventsSuccessCallback: function (data) {
         var eventData = JSON.parse(data);
         console.log(
@@ -160,12 +157,14 @@ var app = {
             app.lpGenerateNewAuthenticationToken();
         }
     },
+
     globalAsyncEventsErrorCallback: function (data) {
         var eventData = JSON.parse(data);
         console.log(
             '@@@ globalAsyncEventsErrorCallback --> ' + data
         );
     },
+
     lpGenerateNewAuthenticationToken: function () {
         // code to generate new fresh JWT would go here...
         // TODO -- implement auth0 API call for refresh token via AJAX/jQuery etc to get a new token
@@ -183,6 +182,7 @@ var app = {
         );
         console.log('lpGenerateNewAuthenticationToken completed --> new jwt -->  ', jwt);
     },
+
     lpMessagingSdkInit: function () {
         // lp_sdk_init
 
@@ -203,7 +203,7 @@ var app = {
         };
         //here2
         lpMessagingSDK.lp_conversation_api(
-            "lp_sdk_init", [this.settings.accountId, sdkConfig],
+            "lp_sdk_init", [this.settings.accountId, this.settings.appInstallationId, sdkConfig],
             function (data) {
                 var eventData = JSON.parse(data);
                 console.log("@@@ js ... unique lp_sdk_init SDK callback");
@@ -235,7 +235,6 @@ var app = {
             }
         );
 
-
         lpMessagingSDK.lp_register_event_callback(
             [this.settings.accountId],
             this.globalAsyncEventsSuccessCallback,
@@ -244,6 +243,7 @@ var app = {
 
         console.log('@@@ js lpMessagingSdkInit completed -- ' + this.settings.accountId);
     },
+
     lpStartMessagingConversation: function (customerId) {
 
         // HERE is where you would write your code to call your IDP and return your JWT token for an authenticated customer
@@ -262,7 +262,8 @@ var app = {
         lpMessagingSDK.lp_conversation_api(
             "start_lp_conversation", [
                 this.settings.accountId,
-                customerId == "jwt1" ? JWT : JWT2
+                null
+               // customerId == "jwt1" ? JWT : JWT2
             ],
             function (data) {
                 var eventData = JSON.parse(data);

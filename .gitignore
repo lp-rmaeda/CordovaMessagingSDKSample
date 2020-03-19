@@ -23,6 +23,8 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# vi makes
 .*.swp
 
 #Cordova build

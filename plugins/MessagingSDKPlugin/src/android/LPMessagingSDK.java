@@ -1,6 +1,5 @@
 package com.liveperson.plugin;
 
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -11,6 +10,7 @@ import com.liveperson.api.sdk.LPConversationData;
 import com.liveperson.infra.ConversationViewParams;
 import com.liveperson.infra.InitLivePersonProperties;
 import com.liveperson.infra.LPConversationsHistoryStateToDisplay;
+import com.liveperson.infra.MonitoringInitParams;
 import com.liveperson.infra.auth.LPAuthenticationParams;
 import com.liveperson.infra.auth.LPAuthenticationType;
 import com.liveperson.infra.callbacks.InitLivePersonCallBack;
@@ -97,9 +97,11 @@ public class LPMessagingSDK extends CordovaPlugin {
                 //mCallbackContext = callbackContext;
                 // lp_sdk_init - Call this action inorder to do Messaging SDK init
                 final String accountId = args.getString(0);
+                final String appInstallId = args.getString(1);
                 Log.d(TAG, "Messaging SDK: init for account Id: " + accountId);
+                Log.d(TAG, "Messaging SDK: init for App Key: " + appInstallId);
                 Log.v(TAG, "Messaging SDK VERSION:" + LivePerson.getSDKVersion());
-                initSDK(accountId,callbackContext);
+                initSDK(accountId, appInstallId, callbackContext);
                 break;
             case CLOSE_CONVERSATION_SCREEN:
                 mCallbackContext = callbackContext;
@@ -201,13 +203,16 @@ public class LPMessagingSDK extends CordovaPlugin {
     /**
      *
      * @param accountId
+     * @param appInstallId
      */
-    private void initSDK(final String accountId,org.apache.cordova.CallbackContext cb) {
-            final org.apache.cordova.CallbackContext callbackContext = cb;
+    private void initSDK(final String accountId, final String appInstallId, org.apache.cordova.CallbackContext cb) {
+        final org.apache.cordova.CallbackContext callbackContext = cb;
+        // final MonitoringInitParams monitoringParams = new MonitoringInitParams("6751f6e9-189c-4f7f-b22a-bb850b65aab3");
+        final MonitoringInitParams monitoringParams = new MonitoringInitParams(appInstallId);
 
-            cordova.getActivity().runOnUiThread(new Runnable() {
+        cordova.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
-                    LivePerson.initialize(cordova.getActivity(), new InitLivePersonProperties(accountId, LP_APP_PACKAGE_NAME, new InitLivePersonCallBack() {
+                    LivePerson.initialize(cordova.getActivity(), new InitLivePersonProperties(accountId, LP_APP_PACKAGE_NAME, monitoringParams, new InitLivePersonCallBack() {
                         @Override
                         public void onInitSucceed() {
                             Log.i(TAG, "@@@ android ... SDK initialize completed successfully");
