@@ -99,6 +99,7 @@ var app = {
 
         var buttonElement = document.getElementById(this.settings.startMessagingConversationButtonId);
         buttonElement.addEventListener("click", this.lpStartMessagingConversation.bind(this, 'jwt1'), false);
+        buttonElement.setAttribute('style', 'display:block;');
 
         // var buttonElement2 = document.getElementById("start_lp_conversation_2nd_user");
         // buttonElement2.addEventListener("click", this.lpStartMessagingConversation.bind(this, 'jwt2'), false);
@@ -106,8 +107,8 @@ var app = {
         //        var buttonElement3 = document.getElementById("init_lp_sdk");
         //        buttonElement3.addEventListener("click",this.lpMessagingSdkInit.bind(this),false);
 
-        var logoutElement = document.getElementById(this.settings.logoutButtonId);
-        logoutElement.addEventListener("click", this.clearDeviceHistoryAndLogout.bind(this), false);
+        // var logoutElement = document.getElementById(this.settings.logoutButtonId);
+        // logoutElement.addEventListener("click", this.clearDeviceHistoryAndLogout.bind(this), false);
     },
 
     clearDeviceHistoryAndLogout: function () {

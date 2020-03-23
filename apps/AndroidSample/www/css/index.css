@@ -43,7 +43,7 @@ body {
     position:absolute;             /* position in the center of the screen */
     left:50%;
     top:50%;
-    height:50px;                   /* text area height */
+    height:82px;                   /* text area height */
     width:225px;                   /* text area width */
     text-align:center;
     padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
@@ -104,4 +104,39 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+.LPcontainer {
+    position: fixed;
+    margin: auto;
+    left: auto;
+    right: 0px;
+    top: auto;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+}
+
+.LPbutton {
+    display:none;
+    position: absolute;
+    margin: auto;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgb(3, 99, 173);
+    border-radius: 30px;
+    width: 100%;
+}
+
+.LPimage {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 10%;
+    padding: 0px;
+    z-index: 600;
+    width: 80%;
 }
