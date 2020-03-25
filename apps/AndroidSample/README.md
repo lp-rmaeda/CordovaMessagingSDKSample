@@ -1,12 +1,15 @@
 # Sample for Android
 
-> A sample for testing each feature in LiveEngage
+> A sample for testing each feature in LiveEngage on Android native application
 
 # What is this?
 
 This is a sample implementation for Android native application integrating [Apache Cordova](https://cordova.apache.org/) and [Mobile Messaging SDK for Android](https://developers.liveperson.com/mobile-app-messaging-sdk-for-android-overview.html).
 The purpose of this application is to test and upgrade the plugin [MessagingSDKPlugin](../../plugins/MessagingSDKPlugin/).
-There's no guarantee that code here does work for business requirement accordingly.
+
+Indeed there are the past version of code in other branches, however; we should NOT directly use these code, but should refactor these along with the great design, not the implementation.
+
+No need to say, there's no guarantee that code here does work for business requirement accordingly.
 
 # Prerequisite
 
@@ -61,7 +64,9 @@ $ cordova build android
 The plugin itself should be managed at [MessagingSDKPlugin](../../plugins/MessagingSDKPlugin/), because Android support is a part of functionality of this plugin.
 That will have change for iOS support.
 
-# How to run the sample application and the plugin
+# How to run
+
+## Sample application
 
 The current combination of versions does NOT work by the following way:
 
@@ -75,10 +80,13 @@ Therefore open the following directory by Android Studio for testing every featu
 $ ls -d ${PWD}/platforms/android
 ```
 
-The code of the plugin is below:
+## Plugin
+
+The code of the plugin used by the sample application is below:
 
 ```
 $ ls platforms/android/app/src/main/java/com/liveperson/plugin/LPMessagingSDK.java
 ```
 
-Once "cordova clean" is called, the above file is gone, then make sure that this file has been copied to [MessagingSDKPlugin](../../plugins/MessagingSDKPlugin/) if meaningful changes on this plugin.
+This is the only place where this code can be tested and can be upgraded for new features.
+Then make sure that this file has been copied to [MessagingSDKPlugin](../../plugins/MessagingSDKPlugin/src/android/) if meaningful changes on this plugin, because "cordova clean" removes this file on the sample application.
