@@ -88,5 +88,5 @@ The code of the plugin used by the sample application is below:
 $ ls platforms/android/app/src/main/java/com/liveperson/plugin/LPMessagingSDK.java
 ```
 
-This is the only place where this code can be tested and can be upgraded for new features.
+This is the only place that this code can be tested and can be upgraded for new features.
 Then make sure that this file has been copied to [MessagingSDKPlugin](../../plugins/MessagingSDKPlugin/src/android/) if meaningful changes on this plugin, because "cordova clean" removes this file on the sample application.
